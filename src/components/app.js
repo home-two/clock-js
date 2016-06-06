@@ -1,5 +1,7 @@
-
 import React from "react"
+import Clock from "./clock"
+
+
 
 export default class App extends React.Component {
   render () {
@@ -14,9 +16,7 @@ export default class App extends React.Component {
     } = this.props
     return (
       <div>
-        <div>{hours}</div>
-        <div>{minutes}</div>
-        <div>{seconds}</div>
+      <Clock hours={hours} minutes={minutes} seconds={seconds} />
       </div>
     )
   }
