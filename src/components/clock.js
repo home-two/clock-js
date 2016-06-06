@@ -3,6 +3,7 @@ import React, { PropTypes as T } from "React"
 
 
 export default class Clock extends React.Component {
+
   static propTypes = {
     hours: T.number.isRequired,
     minutes: T.number.isRequired,
@@ -15,7 +16,6 @@ export default class Clock extends React.Component {
       minutes,
       seconds,
     } = this.props
-
 
     const hourDegrees = (hours / 12) * 360
     const minDegrees = (minutes / 60) * 360
