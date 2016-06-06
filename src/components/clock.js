@@ -12,18 +12,20 @@ export default class Clock extends React.Component {
     } = this.props
 
 
-    const absoluteStyle = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-    }
-
     const hourDegrees = (hours / 12) * 360
     const minDegrees = (minutes / 60) * 360
     const secDegrees = (seconds / 60) * 360
-  
-    // TODO Fix alignment on hands with width greater than 1px.
 
+    const absoluteCenterStyle = {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+    }
+    const handStyle = {
+      ...absoluteCenterStyle,
+      transformOrigin: "50% 100%",
+      backgroundColor: "#eee",
+    }
     const faceStyle = {
       position: "relative",
       width: 500,
@@ -32,42 +34,32 @@ export default class Clock extends React.Component {
       borderRadius: "50%"
     }
     const pinStyle = {
-      ...absoluteStyle,
-      width: 1,
-      height: 1,
+      ...absoluteCenterStyle,
+      width: 10,
+      height: 10,
       borderRadius: "50%",
       backgroundColor: "red",
-      transform: "translate(0px, 0px)",
-      top: "50%",
-      left: "50%",
+      transform: "translate(-50%, -50%)",
     }
     const hourStyle = {
-      ...absoluteStyle,
+      ...handStyle,
       width: 20,
       height: 100,
-      transformOrigin: "50% 100%",
-      transform: `translate(250px, 150px) rotate(${hourDegrees}deg)`,
-      backgroundColor: "#eee",
+      transform: `translate(-50%, -100%) rotate(${hourDegrees}deg)`,
     }
     const minStyle = {
-      ...absoluteStyle,
+      ...handStyle,
       width: 10,
       height: 240,
-      transformOrigin: "50% 100%",
-      transform: `translate(250px, 10px) rotate(${minDegrees}deg)`,
-      backgroundColor: "#eee",
+      transform: `translate(-50%, -100%) rotate(${minDegrees}deg)`,
     }
     const secStyle = {
-      ...absoluteStyle,
-      width: 1,
-      height: 250,
-      transformOrigin: "50% 100%",
-      transform: `translate(250px, 0px) rotate(${secDegrees}deg)`,
-      backgroundColor: "#eee",
+      ...handStyle,
+      width: 3,
+      height: 240,
+      transform: `translate(-50%, -100%) rotate(${secDegrees}deg)`,
     }
     return (
-      // container div that's a black circle 500 diameter
-      // nested inside 3 divs: hr, min, sec
       <div style={faceStyle}>
         <div style={hourStyle}>{hours}</div>
         <div style={minStyle}>{minutes}</div>
