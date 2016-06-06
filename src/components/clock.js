@@ -1,9 +1,14 @@
-import React from "React"
+import React, { PropTypes as T } from "React"
 
 
 
 export default class Clock extends React.Component {
-  propT
+  static propTypes = {
+    hours: T.number.isRequired,
+    minutes: T.number.isRequired,
+    seconds: T.number.isRequired,
+  }
+
   render () {
     const {
       hours,
