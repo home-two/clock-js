@@ -11,28 +11,46 @@ export default class Clock extends React.Component {
       seconds,
     } = this.props
     
-    const hourDegrees = 90
-    const minDegrees = 180
-    const secDegrees = 270
+    // get a percent (0-1) from hours
+    // get a degrees from that percent
+    const hourDegrees = (hours / 12) * 360
+    const minDegrees = (minutes / 60) * 360
+    const secDegrees = (seconds / 60) * 360
 
     const faceStyle = {
+      position: "relative",
       width: 500,
       height: 500,      
       backgroundColor: "#222",
       borderRadius: "50%"
     }
     const hourStyle = {
-      width: 10,
-      height: 250,
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: 20,
+      height: 100,
       transformOrigin: "50% 100%",
-      transform: "translate(250px, 0) rotate(77deg)",
+      transform: `translate(250px, 150px) rotate(${hourDegrees}deg)`,
       backgroundColor: "#eee",
     }
     const minStyle = {
-
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: 10,
+      height: 240,
+      transformOrigin: "50% 100%",
+      transform: `translate(250px, 0px) rotate(${minDegrees}deg)`,
+      backgroundColor: "#eee",
     }
     const secStyle = {
-
+      position: "absolute",
+      width: 20,
+      height: 100,
+      transformOrigin: "50% 100%",
+      transform: `translate(250px, 150px) rotate(${hourDegrees}deg)`,
+      backgroundColor: "#eee",
     }
     return (
       // container div that's a black circle 500 diameter
