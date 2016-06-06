@@ -61,9 +61,9 @@ export default class Clock extends React.Component {
     }
     return (
       <div style={faceStyle}>
-        <div style={hourStyle}>{hours}</div>
-        <div style={minStyle}>{minutes}</div>
-        <div style={secStyle}>{seconds}</div>
+        <div style={hourStyle}></div>
+        <div style={minStyle}></div>
+        <div style={secStyle}></div>
         <div style={pinStyle}></div>
       </div>
     )
